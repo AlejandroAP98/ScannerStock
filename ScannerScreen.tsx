@@ -3,7 +3,7 @@ import { View, ActivityIndicator, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SelectionScreen from "./SelectionScreen";
 
-const ScannerScreen = ({ navigation }) => {
+const ScannerScreen = ({ navigation }: { navigation: any }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

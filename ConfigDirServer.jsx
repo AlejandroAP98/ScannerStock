@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState, useEffect } from "react";
-import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Alert, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function ConfigScreen({ navigation }) {
   const [serverUrl, setServerUrl] = useState("");

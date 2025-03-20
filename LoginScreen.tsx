@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, TextInput, Alert, Text, ImageBackground, Image, TouchableOpacity, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import OnLine from "./OnLine";
 import { MaterialIcons } from "@expo/vector-icons";
-const LoginScreen = ({ navigation }) => {
+
+const LoginScreen = ({ navigation }: { navigation: any }) => {
 
   const [usuario, setUsuario] = useState("");
   const [contrasena, setContrasena] = useState("");
+  const [server_url, setServerUrl] = useState("");
   
+  useEffect(() => {
+    // Cargar la URL guardada si existe
+    AsyncStorage.getItem("server_url").then((url) => {
+      if (url) setServerUrl(url);
+    });
+  }, []);
+
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://192.168.1.11:3000/api/users/login", {
+      const response = await fetch((`${server_url}/api/users/login`), {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, contrasena }),

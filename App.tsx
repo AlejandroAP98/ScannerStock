@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -8,17 +9,25 @@ import SelectionScreen from "./SelectionScreen";
 import BarcodeScanner from "./BarcodeScanner";
 
 
-const Stack = createStackNavigator();
+type RootStackParamList = {
+  Login: undefined;
+  Scanner: undefined;
+  Selection: undefined;
+  BarcodeScanner: undefined;
+  Config: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator id={undefined} initialRouteName="Login" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Config" component={ConfigScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Scanner" component={ScannerScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Selection" component={SelectionScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Config" component={ConfigScreen}  />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Scanner" component={ScannerScreen}  />
+        <Stack.Screen name="Selection" component={SelectionScreen} />
+        <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} />
       </Stack.Navigator>
     </NavigationContainer>
   );

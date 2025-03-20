@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "Scanner Stock",
-    "slug": "Scanner-Stock",
+    "slug": "appbarscanner",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "scheme": "scanner-stock",
+    "scheme": "appbarscanner",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -17,7 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.scannerstock",
+      "package": "com.appbarscanner",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -52,7 +52,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "eaac28bd-a6c0-4220-b6e8-4290c6aa3bc3"
+        "projectId": "0433305e-8985-4ce2-a6ed-996a7b50d7f2"
       }
     }
   }

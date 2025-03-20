@@ -36,7 +36,7 @@ interface Movimiento {
   tipo_movimiento: string;
 }
 
-export default function BarcodeScanner({ navigation }) {
+export default function BarcodeScanner({ navigation }: { navigation: any }) {
   const [permission, requestPermission] = useCameraPermissions();
   const ref = useRef(null);
   const [scanned, setScanned] = useState(false);
@@ -67,7 +67,7 @@ export default function BarcodeScanner({ navigation }) {
   if (!permission) return null;
   if (!permission.granted) {
     return (
-      <View style={styles.container}>
+      <View style={{flex:1, backgroundColor:"#000", justifyContent:"center", alignItems:"center"}}>
         <Text style={styles.permissionText}>Se necesita permiso para usar la cámara</Text>
         <TouchableOpacity style={styles.button} onPress={requestPermission}>
           <Text style={styles.buttonText}>Conceder permiso</Text>
@@ -161,8 +161,8 @@ export default function BarcodeScanner({ navigation }) {
       const token = await AsyncStorage.getItem("token"); 
       const movimiento: Movimiento = {
         codigo: codigo,
-        id_producto: producto.id,
-        id_sala : sala,
+        id_producto: producto?.id || 0,
+        id_sala : sala || "",
         cantidad: parseInt(cantidad, 10),
         tipo_movimiento: action === "entrada" ? "ingreso" : "salida",
       };
@@ -203,7 +203,7 @@ export default function BarcodeScanner({ navigation }) {
   };
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} ref={ref} onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}>
+      <CameraView style={styles.camera} onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}>
         <View style={styles.overlay}>
           
         </View>
