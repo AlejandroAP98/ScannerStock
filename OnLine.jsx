@@ -31,7 +31,7 @@ export default function HomeScreen() {
   }
 
   return (
-      <View style={{ justifyContent: "center", alignItems: "center", position: "absolute",  bottom: 20, left: 0}}>
+      <View style={{ justifyContent: "center", alignItems: "center", position: "absolute",  bottom: 10, left: 10}}>
       <Text style={{ color: "#fff" }}>{isOnline ? "🟢 Servidor en línea" : "🔴 Servidor desconectado"}</Text>
     </View>
   );

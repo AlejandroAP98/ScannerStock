@@ -204,20 +204,12 @@ export default function BarcodeScanner({ navigation }: { navigation: any }) {
   return (
     <View style={styles.container}>
       <CameraView style={styles.camera} onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}>
-        <View style={styles.overlay}>
-          
-        </View>
+        <View style={styles.overlay}></View>
       </CameraView>
-
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.replace("Selection")}>
-        <MaterialIcons name="arrow-back" size={28} color="black" />
-      </TouchableOpacity>
-
-      <Modal visible={modalVisible} transparent animationType="slide">
+      <Modal visible={modalVisible} transparent animationType="fade">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             {producto && (
-              
                 <> 
                   <Text style={styles.modalText}>Producto: {producto?.nombre}</Text>
                   {action === "salida" && (
@@ -280,5 +272,5 @@ const styles = StyleSheet.create({
   buttonTextCancel: { color: "#fff", fontSize: 16, fontWeight: "bold", textAlign: "center", },
   backButton: { position: "absolute", top: 50,left: 10, backgroundColor: "#fff", padding: 10, borderRadius: 50 },
   permissionText: { color: "#fff", fontSize: 16, fontWeight: "bold" },
-  helpText: { color: "#fff", fontSize: 16, fontWeight: "bold", textAlign: "center", backgroundColor: "rgba(0,0,0,0.5)" },
+  helpText: { color: "#000", fontSize: 16, fontWeight: "bold", textAlign: "center", backgroundColor: "rgba(255,255,255,0.5)" },
 });

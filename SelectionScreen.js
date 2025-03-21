@@ -9,9 +9,12 @@ const SelectionScreen = () => {
 
   return (
     <ImageBackground source={require("./assets/background.jpg")} style={styles.background}>
-        <TouchableOpacity style={styles.logoutButton} onPress={() => navigation.replace("Login")}>
-        <MaterialIcons name="logout" size={28} color="white" />
-      </TouchableOpacity>
+        <View style={styles.logoutButton}>
+          <TouchableOpacity style={styles.logoutButton} onPress={() => navigation.replace("Login")}>
+          <MaterialIcons name="logout" size={28} color="white" />
+          <Text style={{color: "white"}}>Cerrar sesión</Text>
+          </TouchableOpacity>
+        </View>
     <View style={styles.container}>
       <Text style={styles.title}>Seleccione una opción: </Text>
       <TouchableOpacity
@@ -51,22 +54,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f5f5f5",
-    padding: 20,
+    padding: 10,
   },
   container: {
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
-    gap: 5,
+    padding: 10,
+    gap: 10,
     alignContent: "center",
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: 10,
     height: "50%",
+    width: "95%",
+    borderWidth: 1,
+    borderColor: "#F28123",
   },
   logoutButton: {
     position: "absolute",
-    top: 30,
-    right: 30,
+    top: 5,
+    right: 5,
+    flexDirection: "column",
+    alignItems: "center",
   },
   title: {
     fontSize: 22,
@@ -88,7 +96,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#000",
     fontSize: 18,
-    fontWeight: "semibold",
+    fontWeight: "300",
     textAlign: "center",
   },
   buttonCopy: {
@@ -101,6 +109,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     gap: 10,
+    borderWidth: 1,
+    borderColor: "#000",
   },
   buttonEntrada: {
     backgroundColor: "#7CE577",
@@ -113,6 +123,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     gap: 10,
+    borderWidth: 1,
+    borderColor: "#000",
   },
   buttonSalida: {
     backgroundColor: "#FF715B",
@@ -125,6 +137,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     gap: 10,
+    borderWidth: 1,
+    borderColor: "#000",
   },
 });
 

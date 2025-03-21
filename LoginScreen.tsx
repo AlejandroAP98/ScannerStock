@@ -28,7 +28,6 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
       if (!response.ok) throw new Error(data.error || "Error en el inicio de sesión");
       await AsyncStorage.setItem("token", data.token);
       await AsyncStorage.setItem("sala", data.sala.toString()); 
-      Alert.alert("Inicio de sesión exitoso");
       navigation.navigate("Scanner"); // Redirigir a la pantalla del escáner
     } catch (error) {
       Alert.alert("Error al iniciar sesión de usuario");
@@ -45,7 +44,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
         <View style={styles.card}>
           <Image source={require("./assets/logo.jpg")} style={styles.logo} />
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Usuario</Text>
+            <Text style={styles.label}>Usuario:</Text>
             <TextInput
               style={styles.input}
               placeholder="Nombre de usuario o email"
@@ -68,7 +67,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
             />
           </View>
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Contraseña</Text>
+            <Text style={styles.label}>Contraseña:</Text>
             <TextInput
               style={styles.input}
               placeholder="Ingrese su contraseña"
@@ -99,19 +98,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    height: "100%",
   },
   card: {
-    backgroundColor: "rgba(241, 236, 160, 0.95)",
+    backgroundColor: "rgba(252, 251, 235, 0.94)",
     padding: 20,
     borderRadius: 15,
     width: "85%",
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#FCE762",
   },
   logo: {
     width: 250,
-    height: 200,
-    resizeMode: "contain",
+    height: 150,
+    resizeMode: "stretch",
     marginBottom: 20,
+    borderRadius: 10,
+    marginTop: 20,
   },
   inputContainer: {
     width: "100%",
@@ -120,17 +124,18 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: "bold",
-    marginBottom: 5,
     color: "#333",
   },
   input: {
     width: "100%",
-    height: 40,
+    height: 50,
     borderColor: "#ddd",
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 10,
     backgroundColor: "#fff",
+    fontWeight: "300",
+    fontSize: 18,
   },
   button: {
     backgroundColor: "#fbb034",
@@ -141,16 +146,16 @@ const styles = StyleSheet.create({
   },
   buttonConfig: {
     position: "absolute",
-    top: 30,
-    left: 10,
+    top: 10,
+    right: 10,
     backgroundColor: "#fff",
     padding: 10,
     borderRadius: 50,
   },
   buttonText: {
     color: "#000",
-    fontWeight: "bold",
-    fontSize: 16,
+    fontWeight: "semibold",
+    fontSize: 18,
   },
 });
 

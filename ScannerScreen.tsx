@@ -21,7 +21,7 @@ const ScannerScreen = ({ navigation }: { navigation: any }) => {
   }, []);
 
   if (loading) {
-    return <ActivityIndicator size="large" />;
+    return <ActivityIndicator size="small" color="white" />;
   }
 
   return <SelectionScreen />;

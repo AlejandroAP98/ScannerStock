@@ -22,12 +22,17 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Config" component={ConfigScreen}  />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Scanner" component={ScannerScreen}  />
-        <Stack.Screen name="Selection" component={SelectionScreen} />
-        <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} />
+      <Stack.Navigator initialRouteName="Login" 
+        screenOptions={{
+          headerTitleAlign: 'center',
+          headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'black' },
+          headerStyle: { backgroundColor: '#FCE762', height: 80}, 
+        }}>
+        <Stack.Screen name="Config" component={ConfigScreen} options={{title: 'Configuración' }}  />
+        <Stack.Screen name="Login" component={LoginScreen} options={{title: 'Inicio de sesión', headerLeft:()=>null }}  />
+        <Stack.Screen name="Scanner" component={ScannerScreen} options={{title: 'Acciones'}} />
+        <Stack.Screen name="Selection" component={SelectionScreen}  />
+        <Stack.Screen name="BarcodeScanner" component={BarcodeScanner} options={{title: 'Escaner de código'}}  />
       </Stack.Navigator>
     </NavigationContainer>
   );
