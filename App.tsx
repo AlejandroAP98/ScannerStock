@@ -26,7 +26,7 @@ export default function App() {
         screenOptions={{
           headerTitleAlign: 'center',
           headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'black' },
-          headerStyle: { backgroundColor: '#FCE762', height: 80}, 
+          headerStyle: { backgroundColor: '#FCE762', height: 60}, 
         }}>
         <Stack.Screen name="Config" component={ConfigScreen} options={{title: 'Configuración' }}  />
         <Stack.Screen name="Login" component={LoginScreen} options={{title: 'Inicio de sesión', headerLeft:()=>null }}  />
